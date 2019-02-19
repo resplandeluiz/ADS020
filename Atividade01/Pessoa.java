@@ -36,7 +36,7 @@ public class Pessoa {
     
     public static void main(String[] args) {
         
-        new Pessoa('Luiz Resplande',Pessoa.SEXO_MASCULINO);
+       Pessoa pessoa =  new Pessoa("Luiz Resplande",Pessoa.SEXO_MASCULINO);
 
     }
     
