@@ -8,7 +8,7 @@
  *
  * @author 17114290048
  */
-public class Pessoa {
+abstract public class Pessoa {
     
     public static int SEXO_MASCULINO  = 1;
     public static int SEXO_FEMININO = 2;
@@ -34,12 +34,12 @@ public class Pessoa {
     }
     
     
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         
        Pessoa Luiz =  new Pessoa("Luiz Resplande",Pessoa.SEXO_MASCULINO);
        
         System.out.println(Luiz.getNome());
         System.out.println(Luiz.getSexo());
-    }
+    }*/
     
 }
