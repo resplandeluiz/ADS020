@@ -2,6 +2,10 @@
 public class Gerente extends Funcionario{
     
     private double bonus;
+
+    public double getBonus() { return bonus;}
+
+    public void setBonus(double bonus) {this.bonus = bonus;}
     
     public Gerente(int matricula, String nome, int sexo ,double salario,double bonus){
             
@@ -12,7 +16,7 @@ public class Gerente extends Funcionario{
     
     @Override
     public double getSalario(){        
-        return this.getSalario() + bonus;        
+        return salario+bonus;        
     }
     
 }
