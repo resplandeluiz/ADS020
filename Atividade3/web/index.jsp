@@ -9,11 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>My web application</title>
+       
+
     </head>
     <body>
         <h1>Seja bem-vindo!</h1>
-<p>Você está acessando uma página HTML.</p>
-
+<p>Você está acessando uma página JSP.</p>
+<%java.util.Date data = new java.util.Date();%> 
+<%=data %>
     </body>
 </html>
