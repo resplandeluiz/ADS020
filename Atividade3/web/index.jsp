@@ -17,5 +17,10 @@
 <p>Você está acessando uma página JSP.</p>
 <%java.util.Date data = new java.util.Date();%> 
 <%=data %>
+
+<% for(int i =0; i<10; i++){ %>
+<p>Teste <%=i%> </p>
+<%}%>
+
     </body>
 </html>
