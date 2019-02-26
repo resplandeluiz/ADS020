@@ -4,7 +4,7 @@ public class Funcionario extends Pessoa{
     
     
     private int matricula;    
-    private double salario;
+    protected double salario;
 
     public int getMatricula() { return matricula;}
     public void setMatricula(int matricula) { this.matricula = matricula; }   
@@ -23,7 +23,7 @@ public class Funcionario extends Pessoa{
 
     
     public String toString() {        
-        return "Funcionário{matrícula="+ matricula + ", nome=" + this.getNome() + ", sexo="  + this.getSexo() + ", salário=" + salario + "}";
+        return "Funcionário{matrícula="+ matricula + ", nome=" + this.getNome() + ", sexo="  + this.getSexo() + ", salário=" + getSalario() + "}";
     }
     
     
