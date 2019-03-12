@@ -12,6 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Form olá mundo servlet</h1>
+        <form action="OlaMundoServlet" method="post">
+            <input type="text" name="nome" size="20"/>
+            <button type="submit">Enviar</button>
+        </form>
     </body>
 </html>
