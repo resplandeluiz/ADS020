@@ -44,4 +44,4 @@ Atividades publicadas/programadas
 * Atividade 32
 
 ### Criador do trabalho
-- Luiz Resplande
+Luiz Resplande
