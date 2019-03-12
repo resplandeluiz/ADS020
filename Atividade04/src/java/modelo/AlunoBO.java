@@ -1,0 +1,108 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package modelo;
+
+import java.util.ArrayList;
+import java.util.List;
+import modelo.entidades.Aluno;
+import modelo.persistencia.AlunoDAO;
+import modelo.persistencia.DadosException;
+
+/**
+ *
+ * @author 17114290048
+ */
+public class AlunoBO implements BO<Aluno> {
+
+    @Override
+    public void validar(Aluno entidade) throws NegocioException {
+
+        if (entidade.getMatricula() == 0) {
+
+            throw new NegocioException("Campo obrigatório, preencha a MATRÍCULA !");
+
+        } else if (entidade.getNome().isEmpty()) {
+
+            throw new NegocioException("Campo obrigatório, preencha o NOME !");
+        }
+
+    }
+
+    @Override
+    public List<Aluno> listar() throws NegocioException {
+
+        List<Aluno> lista = new ArrayList<Aluno>();
+        AlunoDAO dao = new AlunoDAO();
+        try {
+
+            lista = dao.listar();
+            if (lista.isEmpty()) {
+                throw new NegocioException("Nenhum aluno cadastrado!");
+            }
+        } catch (DadosException ex) {
+            throw new NegocioException("Ocorreu um erro", ex);
+        }
+
+        return lista;
+    }
+
+    @Override
+    public void incluir(Aluno entidade) throws NegocioException {
+
+        validar(entidade);
+        AlunoDAO dao = new AlunoDAO();
+
+        try {
+            dao.incluir(entidade);
+        } catch (DadosException ex) {
+            throw new NegocioException("Ocorreu um erro", ex);
+        }
+    }
+
+    @Override
+    public void alterar(Aluno entidade) throws NegocioException {
+        consultar(entidade.getId());
+        validar(entidade);
+        AlunoDAO dao = new AlunoDAO();
+
+        try {
+            dao.alterar(entidade);
+        } catch (DadosException ex) {
+            throw new NegocioException("Ocorreu um erro", ex);
+        }
+    }
+
+    @Override
+    public void excluir(Aluno entidade) throws NegocioException {
+        try {
+            consultar(entidade.getId());
+            validar(entidade);
+            AlunoDAO alunoDAO = new AlunoDAO();
+            alunoDAO.excluir(entidade.getId());
+        } catch (DadosException ex) {
+            throw new NegocioException("Ocorreu um erro", ex);
+        }
+    }
+
+    @Override
+    public Aluno consultar(int numero) throws NegocioException {
+
+        Aluno aluno = new Aluno();
+        AlunoDAO dao = new AlunoDAO();
+
+        try {
+            aluno = dao.consultar(aluno.getId());
+            if (aluno.getId() == 0) {
+                throw new NegocioException("Aluno não encontrado!");
+            }
+        } catch (DadosException ex) {
+            throw new NegocioException("Ocorreu um erro", ex);
+        }
+
+        return aluno;
+    }
+
+}
