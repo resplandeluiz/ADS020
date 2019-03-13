@@ -21,6 +21,7 @@ public class ConexaoBD {
 
         if (conexao == null) {
             try {
+                
                 Class.forName("com.mysql.jdbc.Driver");
                 conexao = DriverManager.getConnection("jdbc:mysql://localhost/cadastro", "root", "");
 
