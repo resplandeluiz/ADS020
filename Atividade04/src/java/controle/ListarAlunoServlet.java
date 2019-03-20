@@ -56,7 +56,7 @@ public class ListarAlunoServlet extends HttpServlet {
             out.println("<tr>");
             out.println("<td>" + aluno.getMatricula() + "</td>");
             out.println("<td>" + aluno.getMatricula() + "</td>");
-            out.println("<td><a href='aluno/alterar'>Alterar</a>");
+            out.println("<td><a href='" + response.encodeURL("/Atividade04/aluno/alterar?id=") + aluno.getId() + "'>Alterar</a>");
             out.println("<a href=''>Excluir</a></td>");
             out.println("</tr>");
         }

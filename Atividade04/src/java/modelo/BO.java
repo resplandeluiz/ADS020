@@ -18,7 +18,7 @@ public interface BO<T> {
     void incluir(T entidade)throws NegocioException;
     void alterar(T entidade)throws NegocioException;
     void excluir(T entidade)throws NegocioException;
-    T consultar(int numero)throws NegocioException;
+    T consultar(T entidade)throws NegocioException;
     
     
 }
