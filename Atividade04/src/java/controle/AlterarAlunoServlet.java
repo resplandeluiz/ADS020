@@ -49,10 +49,10 @@ public class AlterarAlunoServlet extends HttpServlet {
         out.println("<body>");
         out.println("<h1>Alterar Aluno</h1>");
         out.println("<form action='/Atividade04/aluno/alterar' method='post'>");
-        out.println("<input type='hidden' name='id' value=''/>");
+        out.println("<input type='hidden' name='id' value='"+aluno.getId()+"'/>");
         out.println("<div>");
         out.println("<label>Matrícula:</label>");
-        out.println("<input type='text' name='matricula' size='15' value='"+aluno.getMatricula()+"'>");
+        out.println("<input type='number' name='matricula' size='15' value='"+aluno.getMatricula()+"'>");
         out.println("</div>");
         out.println("<div>");
         out.println("<label>Nome:</label>");
