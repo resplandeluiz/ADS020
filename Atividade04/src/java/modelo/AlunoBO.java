@@ -81,11 +81,14 @@ public class AlunoBO implements BO<Aluno> {
     @Override
     public void excluir(Aluno entidade) throws NegocioException {
         try {
-            consultar(entidade);
-            validar(entidade);
+            
+            consultar(entidade);           
+          
             AlunoDAO alunoDAO = new AlunoDAO();
             alunoDAO.excluir(entidade.getId());
+            
         } catch (DadosException ex) {
+            
             throw new NegocioException("Ocorreu um erro", ex);
         }
     }
