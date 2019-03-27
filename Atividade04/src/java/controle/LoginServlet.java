@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
         out.println("<h1>Efetuar Login</h1>");
-        out.println("<form action='/login' method='post'>");
+        out.println("<form action='"+ request.getContextPath()+"/login' method='post'>");
         out.println("<div>");
         out.println("<label>Matrícula:</label>");
         out.println("<input type='text' name='matricula' size='15' value=''>");
@@ -83,15 +83,16 @@ public class LoginServlet extends HttpServlet {
 
         String matricula = request.getParameter("matricula");
         String senha = request.getParameter("senha");
-        if (matricula == null || senha == null) {
+        
+        if ( matricula.isEmpty() || senha.isEmpty() ){
             
-             response.sendRedirect(request.getContextPath() + "/login");
+             response.sendRedirect( request.getContextPath() + "/login" );
             
         }else {
             
             HttpSession sessao = request.getSession();
             sessao.setAttribute("autenticado", true);
-            response.sendRedirect(request.getContextPath() + "/aluno");
+            response.sendRedirect( request.getContextPath() + "/aluno" );
         }
         
     }
