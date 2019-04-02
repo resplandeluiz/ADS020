@@ -24,32 +24,34 @@ import modelo.entidades.Aluno;
 public class AlunoIncluirServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Cadastro de Alunos</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>Incluir Aluno</h1>");
-        out.println("<form action=\"" + request.getContextPath() + "/aluno/incluir\" method=\"post\">");
-        out.println("<div>");
-        out.println("<label>Matrícula:</label>");
-        out.println("<input type=\"text\" name=\"matricula\" size=\"15\">");
-        out.println("</div>");
-        out.println("<div>");
-        out.println("<label>Nome:</label>");
-        out.println("<input type=\"text\" name=\"nome\" size=\"30\">");
-        out.println("</div>");
-        out.println("<input type=\"submit\" value=\"Salvar\"/>");
-        out.println("<a href=\"" + request.getContextPath() + "/aluno\">Desistir</a>");
-        out.println("</form>");
-        out.println("</body>");
-        out.println("</html>");
+       // PrintWriter out = response.getWriter();
+        request.getRequestDispatcher("/WEB-INF/visao/incluir_aluno.jsp").forward(request, response);
+        
+        
+//        out.println("<!DOCTYPE html>");
+//        out.println("<html>");
+//        out.println("<head>");
+//        out.println("<title>Cadastro de Alunos</title>");
+//        out.println("</head>");
+//        out.println("<body>");
+//        out.println("<h1>Incluir Aluno</h1>");
+//        out.println("<form action=\"" + request.getContextPath() + "/aluno/incluir\" method=\"post\">");
+//        out.println("<div>");
+//        out.println("<label>Matrícula:</label>");
+//        out.println("<input type=\"text\" name=\"matricula\" size=\"15\">");
+//        out.println("</div>");
+//        out.println("<div>");
+//        out.println("<label>Nome:</label>");
+//        out.println("<input type=\"text\" name=\"nome\" size=\"30\">");
+//        out.println("</div>");
+//        out.println("<input type=\"submit\" value=\"Salvar\"/>");
+//        out.println("<a href=\"" + request.getContextPath() + "/aluno\">Desistir</a>");
+//        out.println("</form>");
+//        out.println("</body>");
+//        out.println("</html>");
 
     }
 

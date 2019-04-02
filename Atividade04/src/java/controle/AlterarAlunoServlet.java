@@ -29,40 +29,41 @@ public class AlterarAlunoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Aluno aluno = new Aluno();
         AlunoBO bo = new AlunoBO();
-        aluno.setId(Integer.parseInt(request.getParameter("id")));
-        
+        aluno.setId(Integer.parseInt(request.getParameter("id")));       
 
         try {
             aluno = bo.consultar(aluno);
         } catch (NegocioException ex) {
             throw new ServletException("asdasdas", ex);
         }
-
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Cadastro de Alunos</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>Alterar Aluno</h1>");
-        out.println("<form action='/Atividade04/aluno/alterar' method='post'>");
-        out.println("<input type='hidden' name='id' value='"+aluno.getId()+"'/>");
-        out.println("<div>");
-        out.println("<label>Matrícula:</label>");
-        out.println("<input type='number' name='matricula' size='15' value='"+aluno.getMatricula()+"'>");
-        out.println("</div>");
-        out.println("<div>");
-        out.println("<label>Nome:</label>");
-        out.println("<input type='text' name='nome' size='30' value='"+aluno.getNome()+"'>");
-        out.println("</div>");
-        out.println("<input type='submit' value='Salvar'/>");
-        out.println("<a href='/Atividade04/aluno'>Desistir</a>");
-        out.println("</form>");
-        out.println("</body>");
-        out.println("</html>");
+        request.setAttribute("aluno", aluno);
+        request.getRequestDispatcher("/WEB-INF/visao/alterar_aluno.jsp").forward(request, response);
+        
+//        response.setContentType("text/html;charset=UTF-8");
+//        PrintWriter out = response.getWriter();
+//
+//        out.println("<!DOCTYPE html>");
+//        out.println("<html>");
+//        out.println("<head>");
+//        out.println("<title>Cadastro de Alunos</title>");
+//        out.println("</head>");
+//        out.println("<body>");
+//        out.println("<h1>Alterar Aluno</h1>");
+//        out.println("<form action='/Atividade04/aluno/alterar' method='post'>");
+//        out.println("<input type='hidden' name='id' value='"+aluno.getId()+"'/>");
+//        out.println("<div>");
+//        out.println("<label>Matrícula:</label>");
+//        out.println("<input type='number' name='matricula' size='15' value='"+aluno.getMatricula()+"'>");
+//        out.println("</div>");
+//        out.println("<div>");
+//        out.println("<label>Nome:</label>");
+//        out.println("<input type='text' name='nome' size='30' value='"+aluno.getNome()+"'>");
+//        out.println("</div>");
+//        out.println("<input type='submit' value='Salvar'/>");
+//        out.println("<a href='/Atividade04/aluno'>Desistir</a>");
+//        out.println("</form>");
+//        out.println("</body>");
+//        out.println("</html>");
     }
 
     @Override

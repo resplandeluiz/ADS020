@@ -28,7 +28,7 @@ public class ConexaoBD {
             } catch (ClassNotFoundException ex) {
                 throw new DadosException("Erro ao carregar JDBC!");
             } catch (SQLException ex) {
-                throw new DadosException("Erro ao conectar MySQL!");
+                throw new DadosException("Erro ao conectar MySQL!"+ex.getMessage());
             }
 
         }
