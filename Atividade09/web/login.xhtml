@@ -1,0 +1,61 @@
+
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       <h:form id="user-form" >  
+   <h:panelGrid columns="2">
+
+ <h:inputHidden  id="id" value="" required="true"  /> <br/> 
+ 
+ <h:outputLabel for="matricula">Matrícula</h:outputLabel>  
+ <h:inputText  id="matricula" ></h:inputText><br/> 
+ 
+ <h:outputLabel for="nome">Nome</h:outputLabel>  
+ <h:inputText  id="nome" ></h:inputText><br/> 
+ 
+ <h:outputLabel for="email">Email</h:outputLabel>  
+ <h:inputText  id="email" ></h:inputText><br/> 
+ 
+ <h:selectOneMenu value="select">
+   	<f:selectItem itemValue="DF" itemLabel="DF" />
+   	<f:selectItem itemValue="GO" itemLabel="GO" />
+   	
+</h:selectOneMenu>
+ 
+ <h:outputLabel for="course1">Cursos</h:outputLabel> 
+ <h:selectManyCheckbox id="course1" value="">
+    <f:selectItem itemValue="1" itemLabel="Análise e Desenvolvimento de Sistemas" />
+    <f:selectItem itemValue="2" itemLabel="Jogos Digitais" />
+    <f:selectItem itemValue="3" itemLabel="Redes de Computadores" />
+    <f:selectItem itemValue="4" itemLabel="Segurança da Informação" />
+</h:selectManyCheckbox>
+ 
+ <h:outputLabel for="bolsa">Bolsa</h:outputLabel> 
+ 
+ <h:selectOneRadio value="#{user.favColor1}">
+     
+    <f:selectItem itemValue="1" itemLabel="100%" />
+    <f:selectItem itemValue="2" itemLabel="75%" />
+    <f:selectItem itemValue="3" itemLabel="50%" />
+    <f:selectItem itemValue="4" itemLabel="30%" />
+    
+</h:selectOneRadio>
+ 
+ 
+			
+			
+				
+			
+			
+		</h:panelGrid>
+<h:commandButton id="submit-button" value="Submit" action="response.xhtml"/>  
+</h:form>  
+    </h:body>
+</html>
+
