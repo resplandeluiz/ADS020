@@ -7,23 +7,16 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form id="user-form" action="#{loginMB.entrar}" >  
+        <h:form id="user-form"  >  
 
 
             <h:outputLabel for="matricula">Matrícula</h:outputLabel>  
-            <h:inputText  id="matricula" value=" #{ loginMB.matricula } "></h:inputText><br/> 
-
-            <h:outputLabel for="nome">Nome</h:outputLabel>  
-            <h:inputText  id="nome" ></h:inputText><br/> 
-
-            <h:outputLabel for="email">Email</h:outputLabel>  
-            <h:inputText  id="email" ></h:inputText><br/> 
-
+            <h:inputText  id="matricula" value="#{loginMB.matricula}"></h:inputText><br/> 
             <h:outputLabel for="inputSenha">Senha</h:outputLabel>  
-            <h:inputSecret  id="inputSenha" value=" #{ loginMB.senha }" ></h:inputSecret><br/> 
+            <h:inputSecret  id="inputSenha" value="#{loginMB.senha}" ></h:inputSecret><br/> 
 
 
-            <h:commandButton id="submit-button" value="Entrar" action="response.xhtml"/>  
+            <h:commandButton id="submit-button" value="Entrar" action="#{loginMB.entrar}"/>  
 
         </h:form>  
 

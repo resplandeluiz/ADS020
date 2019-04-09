@@ -5,6 +5,7 @@
  */
 package managedbeans;
 
+import static java.lang.System.console;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -44,10 +45,11 @@ public class LoginMB {
     }
 
     public String entrar() {
+       
         matricula = this.getMatricula();
         senha = this.getSenha();
+        
         if (matricula.equals("2019000") && senha.equals("123456")) {
-
             return "index";
         } else {
             
