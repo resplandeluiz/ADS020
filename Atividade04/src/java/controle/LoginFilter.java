@@ -30,7 +30,7 @@ public class LoginFilter implements Filter {
 
     @Override
     public void init(FilterConfig fc) throws ServletException {
-       
+
     }
 
     @Override
@@ -41,16 +41,18 @@ public class LoginFilter implements Filter {
         HttpSession session = req.getSession();
 
         if (session.getAttribute("autenticado") != null
-                || req.getRequestURI().equals(req.getContextPath() + "/login")) {
+                || req.getRequestURI().equals(req.getContextPath() + "/faces/login.xhtml")) {
             chain.doFilter(req, resp);
         } else {
-            resp.sendRedirect(req.getContextPath() + "/login");
+            resp.sendRedirect(req.getContextPath() + "/faces/login.xhtml");
         }
+
+        
     }
 
     @Override
     public void destroy() {
-        
+
     }
 
 }

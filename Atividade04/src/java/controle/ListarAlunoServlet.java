@@ -26,7 +26,6 @@ public class ListarAlunoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        
-
         List< Aluno> lista = new ArrayList<Aluno>();
         AlunoBO bo = new AlunoBO();
         
