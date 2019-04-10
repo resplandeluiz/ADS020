@@ -20,6 +20,7 @@ import modelo.AlunoBO;
 import modelo.NegocioException;
 import modelo.entidades.Aluno;
 
+
 /**
  *
  * @author 17114290048
@@ -27,7 +28,38 @@ import modelo.entidades.Aluno;
 @ManagedBean
 @RequestScoped
 public class AlunoMB {
+    
+    
+    private String nome;
+    private String senha;
+    private String matricula;   
 
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+    
+    
     /**
      * Creates a new instance of AlunoMB
      */
@@ -50,5 +82,33 @@ public class AlunoMB {
         return lista;
     
     }
+    
+    
+    public String incluir(){
+        
+        return "incluir";
+    
+    }
+    
+    public String salvar() throws NegocioException{
+        
+        Aluno aluno = new Aluno();
+        aluno.setMatricula(Integer.parseInt(this.getMatricula()));
+        aluno.setNome(this.getNome());
+        System.out.println(aluno);
+
+        AlunoBO bo = new AlunoBO();
+
+        try {
+            bo.incluir(aluno);
+        } catch (NegocioException e) {
+            throw new NegocioException("", e);
+        }
+        
+        return "index";
+    
+        
+    }
+    
     
 }
