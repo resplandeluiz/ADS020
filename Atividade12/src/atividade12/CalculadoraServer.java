@@ -50,18 +50,16 @@ public class CalculadoraServer extends UnicastRemoteObject implements Calculador
 
     public static void main(String[] args) throws RemoteException {
 
-        CalculadoraServer obj = new CalculadoraServer();
-
         try {
-            
+            CalculadoraServer obj = new CalculadoraServer();
             LocateRegistry.createRegistry(1099);
             Naming.rebind("CalculadoraServer", obj);
             System.out.println("Calculadora ligada");
-            
+
         } catch (Exception ex) {
-            
+
             System.err.println("Erro: " + ex.getMessage());
-            
+
         }
     }
 
