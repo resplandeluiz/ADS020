@@ -1,4 +1,5 @@
 
+import ejb.CalculadoraRemota;
 import java.util.Properties;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -14,7 +15,7 @@ public class CalculadoraClient {
         try {
 
             Context context = new InitialContext(jndiProperties);
-            CalculadoraRemota ejb = (CalculadoraRemota) context.lookup("ejb:/Atividade14//CalculadoraRemota!CalculadoraRemota");
+            CalculadoraRemota ejb = (CalculadoraRemota) context.lookup("ejb:/Atividade14//CalculadoraEJB!ejb.CalculadoraRemota");
 
             System.out.println("2 + 2 é igual a " + ejb.somar(2, 2));
             System.out.println("2 - 2 é igual a " + ejb.subtrair(2, 2));

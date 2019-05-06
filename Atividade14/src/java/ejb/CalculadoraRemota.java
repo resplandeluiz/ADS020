@@ -1,3 +1,5 @@
+package ejb;
+
 
 import javax.ejb.EJBException;
 import javax.ejb.Remote;
