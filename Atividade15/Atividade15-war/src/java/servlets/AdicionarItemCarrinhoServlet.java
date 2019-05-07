@@ -1,9 +1,10 @@
+package servlets;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import ejb.CarrinhoCompraLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,31 +27,24 @@ public class AdicionarItemCarrinhoServlet extends HttpServlet {
     @EJB
     private CarrinhoCompraLocal carrinho;
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String item = (String) request.getAttribute("item");
+        String item = (String) request.getParameter("item");
+        
         carrinho.adicionarItem(item);
 
         List<String> lista = carrinho.listarItens();
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+
             if (lista.isEmpty()) {
                 out.println("<p>Nenhum adicionado ao carrinho</p>");
             }
 
-            for (String item : lista) {
-                out.println("<p>" + item + "</p>");
+            for (String listaItem : lista) {
+                out.println("<p>" + listaItem + "</p>");
             }
         }
     }
