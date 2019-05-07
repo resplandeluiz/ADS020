@@ -8,9 +8,10 @@ package servlets;
 import ejb.CarrinhoCompraLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.util.List;
-import javax.ejb.EJB;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,14 +25,25 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/carrinho/adicionar"})
 public class AdicionarItemCarrinhoServlet extends HttpServlet {
 
-    @EJB
     private CarrinhoCompraLocal carrinho;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    
+        carrinho = (CarrinhoCompraLocal) request.getSession().getAttribute("ejb_stateful");
+        
+        if (carrinho == null) {
+            try {
+                Context contexto = new InitialContext();
+                carrinho = (CarrinhoCompraLocal) contexto.lookup("java:global/Atividade15/Atividade15-ejb/CarrinhoCompraStateful!ejb.CarrinhoCompraLocal");
+            } catch (NamingException e) {
+                throw new ServletException(e);
+            }
+            request.getSession().setAttribute("ejb_stateful", carrinho);
+        }
 
         String item = (String) request.getParameter("item");
-        
+
         carrinho.adicionarItem(item);
 
         List<String> lista = carrinho.listarItens();
