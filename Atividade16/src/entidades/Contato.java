@@ -71,7 +71,7 @@ public class Contato implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Contato[ id=" + id + " ]";
+        return "entidades.Contato[ id=" + id + " nome="+ nome +" telefone="+ telefone +" ]";
     }
     
 }

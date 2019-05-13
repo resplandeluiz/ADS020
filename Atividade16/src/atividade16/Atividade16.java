@@ -5,17 +5,20 @@
  */
 package atividade16;
 
-/**
- *
- * @author 17114290048
- */
+import dao.ContatoDAO;
+import entidades.Contato;
+
 public class Atividade16 {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+    
+        ContatoDAO dao = new ContatoDAO();
+        Contato contato = dao.find(1L);
+        System.out.println(contato);
+        
+
+        
     }
     
 }
