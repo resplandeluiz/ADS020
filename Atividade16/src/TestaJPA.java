@@ -17,10 +17,8 @@ public class TestaJPA {
         contato.setTelefone("61 98270 7629");  
         
         contato2.setNome("Manoel");
-        contato2.setTelefone("61 98270 7629"); 
+        contato2.setTelefone("61 98270 7629");      
         
-        contato3.setNome("Resplande");
-        contato3.setTelefone("61 98270 7629"); 
         
         contato3.setNome("Oliveira");
         contato3.setTelefone("61 98270 7629"); 
