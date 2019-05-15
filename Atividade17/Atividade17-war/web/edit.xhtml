@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Listar Aluno</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            <h1><h:outputText value="Editar Aluno"/></h1>
+            <p:messages showDetail="false" showSummary="true" autoUpdate="true"/>
+            <h:panelGrid columns="2">
+                <h:inputHidden id="id" value="#{alunoMB.aluno.id}"
+                               <p:outputLabel value="Matricula:" for="matricula"/>
+                    <p:inputText id="matricula" value="#{alunoMB.aluno.matricula}" title="Matricula"
+                                 required="true" requiredMessage="A Matricula é um campo obrigatório."/>
+                    <p:outputLabel value="Nome:" for="nome"/>
+                    <p:inputText id="nome" value="#{alunoMB.aluno.nome}" title="Nome"
+                                 required="true" requiredMessage="O Nome é um campo obrigatório."/>
+                    <p:commandButton value="Salvar"
+                                     action="#{alunoMB.save(alunoMB.aluno, false)}" />
+                    <p:link value="Cancelar" outcome="index"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
