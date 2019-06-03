@@ -4,7 +4,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 
-@WebService(serviceName = "CalculadoraWS")
+@WebService(serviceName = "Calculadora")
 public class CalculadoraWS {
 
     
